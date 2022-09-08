@@ -1,0 +1,56 @@
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px;
+    border: 1px solid blue;
+}
+
+.login-wrapper * {
+    margin: 5px;
+    border-radius: 25px;
+}
+
+.login-wrapper button{
+    margin-top: 12px;
+    line-height: 30px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: blue;
+    color: white;
+}
+
+.login-wrapper input[type='text'], .login-wrapper input[type='password']{
+    width: 300px;
+    line-height: 30px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: rgb(175, 175, 255);
+}
+.login-wrapper input[type='checkbox']{
+    line-height: 30px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: rgb(175, 175, 255);
+}
+
+.login-wrapper h1{
+    color: blue;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.fotter{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

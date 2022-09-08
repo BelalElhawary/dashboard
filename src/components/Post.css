@@ -1,0 +1,41 @@
+.holder{
+    margin: 5px;
+    padding: 25px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    border: 1px solid rgb(205, 205, 205);
+}
+
+.holder-header{
+    display: flex;
+}
+
+.holder-header img{
+    width: 50px;
+    height: 50px;
+}
+
+.holder-body-text{
+    padding: 25px;
+}
+
+.holder-body img{
+    width: 100%;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+
+.holder-header p{
+    padding-left: 15px;
+    line-height: 50px;    
+}
+
+.holder-footer{
+    width: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    border: 1px solid rgb(205, 205, 205);
+}

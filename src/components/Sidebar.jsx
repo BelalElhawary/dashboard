@@ -7,7 +7,7 @@ import { links } from '../data/DataLists';
 import { useStateContext } from '../context/ContextProvider';
 
 const Sidebar = () => {
-  const {activeMenu, setActiveMenu, screenSize } = useStateContext()
+  const {activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext()
   const handleCloseSideBar = () => {
     if(activeMenu && screenSize <= 900)
     {
@@ -20,8 +20,7 @@ const Sidebar = () => {
 
   return (
     <div className='ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pd-10'>
-      {activeMenu && (
-        <>
+      {activeMenu && (<>
           <div className='flex justify-between items-center'>
             <Link to='/' onClick={handleCloseSideBar} className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900'>
               <SiShopware /><span>IDK</span>
@@ -39,7 +38,7 @@ const Sidebar = () => {
                   {item.title}
                 </p>
                 {item.links.map((link) => (
-                  <NavLink to={`/${link.name}`} key={link.name} onClick={handleCloseSideBar} className={({isActive}) => isActive?activeLink:normalLink}>
+                  <NavLink style={({isActive}) => ({backgroundColor: isActive? currentColor : ''})} to={`/${link.name}`} key={link.name} onClick={handleCloseSideBar} className={({isActive}) => isActive?activeLink:normalLink}>
                     {link.icon}
                     <span className='capitalize'>
                       {link.name}
@@ -49,8 +48,7 @@ const Sidebar = () => {
               </div>
             ))}
           </div>
-        </>
-      )}
+        </>)}
     </div>
   )
 }

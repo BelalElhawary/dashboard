@@ -13,6 +13,10 @@
   }
 }
 
+.welcome{
+  background-image: url('./data/welcome.svg');
+}
+
 .e-dlg-center-center, .e-quick-popup-wrapper.e-device{
   z-index: 1000000 !important;
 }
@@ -27,6 +31,14 @@
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+.light { 
+  @import 'ej2/material.scss'; 
+} 
+
+.dark { 
+  @import 'ej2/material-dark.scss'; 
+} 
 
 /* color-picker style  */
 

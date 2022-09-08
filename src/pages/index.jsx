@@ -1,1 +1,9 @@
 export { default as Home } from './Home';
+export { default as Admins } from './Admins';
+export { default as Students } from './Students';
+export { default as Lessons } from './Lessons';
+export { default as Main } from './Main';
+export { default as Calendar } from './Calendar';
+export { default as Community } from './Community';
+export { default as Messages } from './Messages';
+export { default as ExamMaker } from './ExamMaker';
