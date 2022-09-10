@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 import { Main } from './pages';
-import { CheckToken, LoadAdmins, LoadLessons, LoadStudents, LogIn, Token } from './data/DataLoader'
+import { CheckToken, LogIn, Token } from './data/DataLoader'
 import './App.css';
 import './LogIn.css';
-import { useStateContext } from './context/ContextProvider';
-
-LoadLessons();
-//LoadAdmins();
-//LoadStudents();
 
 const App = () => {
   const [username, setUserName] = useState();
@@ -18,7 +13,6 @@ const App = () => {
   const handleSubmit = e => {
     LogIn(username, password, loadToken)
     setSuccess(true)
-    console.log(Token)
   }
 
   const loadToken = (value) => {

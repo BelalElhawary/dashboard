@@ -2,10 +2,11 @@ import React from 'react'
 import { MdOutlineCancel } from 'react-icons/md'
 import { BsCheck } from 'react-icons/bs'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
-
+import {BiLogOut} from 'react-icons/bi'
 import { useStateContext } from '../context/ContextProvider'
-import { Border } from '@syncfusion/ej2-react-charts'
 import { themeColors } from '../data/DataLists'
+import Button from './Button'
+import { GetCurrentUser, LogOut } from '../data/DataLoader'
 const Settings = () => {
 
   const { setColor, setMode, currentMode, currentColor, setThemeSettings} = useStateContext();
@@ -18,6 +19,14 @@ const Settings = () => {
           <button type='button' onClick={() => setThemeSettings(false)} style={{color: 'rgb(153, 171, 180', borderRadius: '50%'}} className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray'>
             <MdOutlineCancel />
           </button>
+        </div>
+
+        <div className='flex-col border-t-1 border-color p-4 ml-4'>
+          <p className='font-semibold text-lg'>User Options</p>
+          <div className='flex ml-3 mt-5 text-md'>User <p className='ml-2' style={{color: currentColor}}>{GetCurrentUser().name}</p></div>
+          <div className='flex ml-3 mt-2 text-md'>Email <p className='ml-2' style={{color: currentColor}}>{GetCurrentUser().email}</p></div>
+          <div className='flex ml-3 mt-2 text-md'>Permission <p className='ml-2' style={{color: currentColor}}>Admin</p></div>
+          <Button onClick={() => {LogOut()}} color={'white'} bgColor={currentColor} text='Logout' className='ml-3 mt-5 flex' borderRadius='12px' icon={(<BiLogOut className='mt-1 mr-2'/>)}/>
         </div>
 
         <div className='flex-col border-t-1 border-color p-4 ml-4'>

@@ -5,9 +5,10 @@ import './index.css';
 import App from './App';
 import {ContextProvider} from './context/ContextProvider'
 import { registerLicense } from '@syncfusion/ej2-base';
+import { SYNCFUSION_KEY } from './data/env';
 
 // Registering Syncfusion license key
-registerLicense('ORg4AjUWIQA/Gnt2VVhiQlFaclxJXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRdk1jUH9bc3FRQmJdUUM=');
+registerLicense(SYNCFUSION_KEY);
 
 ReactDOM.render(
     <ContextProvider>

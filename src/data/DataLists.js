@@ -1,14 +1,10 @@
-import { AiFillHome, AiFillWechat, AiOutlinePlus } from 'react-icons/ai'
-import { TbSocial } from "react-icons/tb";
+import { AiFillHome } from 'react-icons/ai'
 import { RiAdminFill, RiPercentLine } from 'react-icons/ri'
 import { FaUserFriends } from 'react-icons/fa'
-import { BsBookFill, BsCalendar3WeekFill, BsFillPenFill } from 'react-icons/bs'
-import { DeleteStudent } from './DataRequest';
-import { LoadStudents } from './DataLoader';
+import { BsBookFill, BsCalendar3WeekFill } from 'react-icons/bs'
 import { MdPlayLesson } from 'react-icons/md'
 import { IoIosPaper } from 'react-icons/io'
 import { BsFilePdfFill, BsFileExcelFill, BsFileImageFill } from 'react-icons/bs';
-import { admins, lessons } from '../data/DataLoader'
 
 
 
@@ -34,6 +30,7 @@ export const gridStudentAvialble = (props) => (
     style={{ background: `${props.available==0?'#59CE8F':'#3B9AE1'}`}}
     className="text-white py-1 px-2 capitalize rounded-2xl text-md">
     {`${props.available==0?'Availble':'Active'}`}
+    
   </button>
 );
 
@@ -46,12 +43,11 @@ function checkItemStyle(name)
   return name == 'pdf'? '#C21010':name=='exam'?'#277BC0':'#FFB200'
 }
 
+let currentItem = {}
+
 export const gridLessonContent = (props) => (
   <div className='h-fit w-fit'>
-    {JSON.parse(props.content).map((item) => <button style={{display: 'flex', textAlign: 'center', backgroundColor: checkItemStyle(item.type)}} className='m-1 pl-2 pr-4 rounded-full text-white text-lg'>{checkItemType(item.type)}{item.title}</button>
-
-    )}
-    <button className='bg-green-500 p-1 m-1 rounded-full text-white text-2xl'><AiOutlinePlus /></button>
+    {JSON.parse(props.content).map((item) => <div style={{display: 'flex', textAlign: 'center', backgroundColor: checkItemStyle(item.type)}} className='m-1 pl-2 pr-4 rounded-full text-white text-lg'>{checkItemType(item.type)}{}<br></br><input type='text' placeholder='title' value={item.title}/></div>)}
   </div>
 );
 
@@ -62,6 +58,7 @@ export const lessonsGrid = [
     headerText: 'ID',
     width: '50',
     textAlign: 'Left',
+    allowEditing: false,
   },
   {
     field: 'image',
@@ -74,22 +71,26 @@ export const lessonsGrid = [
     field: 'name',
     headerText: 'Name',
     width: '160',
-    editType: 'dropdownedit',
+    textAlign: 'Left',
+  },
+  {
+    field: 'link',
+    headerText: 'Video Link',
+    width: '160',
     textAlign: 'Left',
   },
   {
     field: 'description',
     headerText: 'Description',
     width: '160',
-    editType: 'dropdownedit',
     textAlign: 'Left',
   },
   {
     field: 'content',
     headerText: 'Content',
     width: '200',
-    allowEditing: false,
-    template: gridLessonContent,
+    allowEditing: true,
+    //template: gridLessonContent,
     textAlign: 'Left',
   },
 ];
@@ -99,26 +100,26 @@ export const adminsGrid = [
   {
     field: 'id',
     headerText: 'ID',
-    width: '5%',
+    width: '50',
     allowEditing: false,
     textAlign: 'Left',
   },
   {
     field: 'name',
     headerText: 'Name',
-    width: 'auto',
+    width: '160',
     textAlign: 'Left',
   },
   {
     field: 'email',
     headerText: 'Email',
-    width: 'auto',
+    width: '160',
     textAlign: 'Left',
   },
   {
     field: 'password',
     headerText: 'Password',
-    width: 'auto',
+    width: '160',
     textAlign: 'Left',
   }
 ];
@@ -154,14 +155,14 @@ export const studentsGrid = [
   {
     field: 'pn',
     headerText: 'Phone Number',
-    editType: 'numericedit',
+    //editType: 'numericedit',
     width: '80',
     textAlign: 'Left',
   },
   {
     field: 'ppn',
     headerText: 'Phone Number',
-    editType: 'numericedit',
+    //editType: 'numericedit',
     width: '80',
     textAlign: 'Left',
   },
@@ -235,7 +236,8 @@ export const links = [
         name: 'calendar',
         icon: <BsCalendar3WeekFill className='mt-1' />
       },
-      {
+      // Still in development
+      /*{
         name: 'community',
         icon: <TbSocial className='mt-1' />
       },
@@ -246,7 +248,7 @@ export const links = [
       {
         name: 'exmaker',
         icon: <BsFillPenFill className='mt-1' />
-      },
+      },*/
     ]
   }
 ]

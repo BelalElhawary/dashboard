@@ -1,20 +1,21 @@
-import React, { useState } from 'react'
-import { ExcelExport, Sort, Filter, GridComponent, ColumnsDirective, ColumnDirective, Toolbar, Search, Page, Edit, PdfExport, Inject } from '@syncfusion/ej2-react-grids';
+import React from 'react'
+import { ExcelExport, GridComponent, ColumnsDirective, ColumnDirective, Toolbar, Search, Edit, PdfExport, Inject } from '@syncfusion/ej2-react-grids';
 
 import { Header } from '../components';
 import { adminsGrid } from '../data/DataLists';
 import { Token } from '../data/DataLoader';
-import { DataManager, UrlAdaptor, Query } from '@syncfusion/ej2-data';
+import { DataManager, UrlAdaptor } from '@syncfusion/ej2-data';
 import { useRef } from 'react';
+import { API } from '../data/env';
 
 const Admins = () => {
   const grid = useRef(null);
   const data = new DataManager({
     adaptor: new UrlAdaptor(),
-    insertUrl: 'http://localhost:2556/api/admins/insert',
-    //removeUrl: 'http://localhost:2556/api/admins/remove',
-    updateUrl: 'http://localhost:2556/api/admins/update',
-    url: 'http://localhost:2556/api/admins',
+    insertUrl: API + 'admins/insert',
+    removeUrl: API + 'admins/remove',
+    updateUrl: API + 'admins/update',
+    url: API + 'admins',
     headers: [{
       'Authorization': `Bearer ${Token}`
      }],
@@ -23,10 +24,10 @@ const Admins = () => {
 
   const toolbarOnClick = (args) =>{
     console.log(args.item.id);
-    if(grid.current && args.item.id == 'grid_1336744963_0_pdfexport')
+    if(grid.current && args.item.id == 'grid_1336744963_3_pdfexport')
     {
       grid.current.pdfExport();
-    }else if(grid.current && args.item.id == 'grid_1336744963_8_excelexport')
+    }else if(grid.current && args.item.id == 'grid_1336744963_3_excelexport')
     {
       grid.current.excelExport();
     }
